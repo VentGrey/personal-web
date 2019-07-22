@@ -5,5 +5,5 @@ use rocket_contrib::templates::Template;
 pub fn not_found(req: &Request) -> Template {
     let mut map = std::collections::HashMap::new();
     map.insert("path", req.uri().path());
-    Template::render("errors/not-found", &map);
+    Template::render("errors/not-found", &map)
 }

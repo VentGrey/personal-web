@@ -1,2 +1,2 @@
 pub mod get;
-pub mod static_giles;
+pub mod static_files;

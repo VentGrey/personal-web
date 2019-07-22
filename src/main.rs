@@ -1,13 +1,13 @@
 #![feature(proc_macro_hygiene, decl_macro)]
-#[macro_use]
-extern crate rocket;
+#[macro_use] extern crate rocket;
+
 extern crate tera;
 
-// Working with tera
-use rocket_contrib::templates::Template;
-
 mod routes;
-use crate::routes::{get, static_files};
+use crate::routes::{ static_files, get, errors };
+
+// tera
+use rocket_contrib::templates::Template;
 
 fn rocket() -> rocket::Rocket {
     rocket::ignite()
@@ -17,6 +17,7 @@ fn rocket() -> rocket::Rocket {
             routes![
                 static_files::file,
                 get::index,
+                get::single_page_app,
             ],
         )
         .register(catchers![errors::not_found])

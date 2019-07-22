@@ -8,7 +8,7 @@ fn rocket() -> rocket::Rocket {
     rocket::ignite()
         .mount(
             "/",
-            routes[
+            routes![
                 static_files::file,
                 get::index,
             ],
@@ -16,5 +16,5 @@ fn rocket() -> rocket::Rocket {
 }
 
 fn main() {
-    rocket.launch();
+    rocket().launch();
 }
